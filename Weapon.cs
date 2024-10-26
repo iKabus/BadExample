@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Shooter : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     [SerializeField] private Rigibody _prefab;
     [SerializeField] private Transform _target;
