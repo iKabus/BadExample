@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Guide : MonoBehaviour
+public class WayPointMover : MonoBehaviour
 {
     [SerializeField] private Transform _pointContainer;
     [SerializeField] private float _speed;
