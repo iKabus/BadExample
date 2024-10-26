@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class InstantiateBulletsShooting : MonoBehaviour
+public class Shooter : MonoBehaviour
 {
     [SerializeField] private Rigibody _prefab;
     [SerializeField] private Transform _target;
