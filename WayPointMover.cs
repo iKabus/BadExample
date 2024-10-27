@@ -33,5 +33,8 @@ public class WayPointMover : MonoBehaviour
     private void ChangeNextPlace()
     {
         _currentPointIndex = ++_currentPointIndex % _points.Length;
+
+        Vector3 direction = _points[_currentPointIndex].position;
+        transform.forward = direction - transform.position;
     }
 }

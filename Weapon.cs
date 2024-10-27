@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Rigibody _prefab;
+    [SerializeField] private Bullet _prefab;
     [SerializeField] private Transform _target;
-    [SerializeField] private float _speed;
     [SerializeField] private float _cooldown;
 
     private void Start()
     {
-        StartCoroutine(ShootingWorker());
+        StartCoroutine(Shooting());
     }
 
-    private IEnumerator ShootingWorker()
+    private IEnumerator Shooting()
     {
         WaitForSecondsRealtime waitingTime = new WaitForSecondsRealtime(_cooldown);
 
@@ -22,10 +21,9 @@ public class Weapon : MonoBehaviour
             yield return waitingTime;
 
             Vector3 direction = (_target.position - transform.position).normalized;
-            Rigidbody newBullet = Instantiate(_prefab, transform.position + direction, Quaternion.identity);
+            Bullet bullet = Instantiate(_prefab, transform.position + direction, Quaternion.identity);
 
-            newBullet.transform.up = direction;
-            newBullet.velocity = direction * _speed;
+            bullet.Init(direction);
         }
     }
 }
